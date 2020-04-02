@@ -1,31 +1,45 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+import "../styles/style.scss"
 
-export const query = graphql`
-  query {
-    allProductCsv {
-        nodes {
-            designer
-            header
-            img
-            descrition
+
+
+const Products = () => {
+    const data = useStaticQuery(graphql`
+    query {
+        allProductCsv {
+            nodes {
+                designer
+                header
+                img {
+                    childImageSharp {
+                        fluid {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+                descrition
+            }
         }
     }
-  }
-`
-export default ({ data }) => {
-    const orderNodes = data.allOrdersCsv.nodes;
+    `)
+    
+    const productNodes = data.allProductCsv.nodes
 
     return (
-        <tbody>
-            {orderNodes.map(node => (
-                <header>
-                    <h1>{node.header}</h1>
-                    <h2>{node.designer}</h2>
-                    <p>{node.descripition}</p>
-                </header>
-            ))}
-        </tbody>
+            <div className="products">
+                {productNodes.map(node => (
+                    <div>
+                        <h1>{node.header}</h1>
+                        <Img
+                            fluid={node.img.childImageSharp.fluid}
+                            alt="Something" />
+                        <h2>{node.designer}</h2>
+                        <p>{node.description}</p>
+                    </div>
+                ))}
+            </div>
     )
 }
 

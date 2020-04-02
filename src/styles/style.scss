@@ -38,6 +38,7 @@ sidebar {
     margin: 0;
     padding: 0;
     box-shadow: $innerShadow;
+    position: fixed;
 }
 
 nav{
@@ -48,10 +49,12 @@ nav{
     }
 }
 
-.products {
+.products, .content {
     width: 50%;
     margin: 0;
     padding: 0;
+    position: absolute;
+    left: 50%;
 }
 h1 {
     font-family: $wide-title;
