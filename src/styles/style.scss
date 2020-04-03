@@ -77,12 +77,21 @@ h1 {
                 5px 5px 15px #0003;
     margin-top: 2rem;
     h1, h2, p {
-        padding: 1rem;
+        padding-left: 1rem;
+        color: $vermelho;
     }
     h1{
         margin-top: 2rem;
-        color: $vermelho;
-        border-top: $vermelho solid 3px;
     }
+    p{
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    img{
+        border-radius: 0 0 2rem 2rem;
+        
+    }
+
+
 
 }
