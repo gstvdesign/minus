@@ -30,7 +30,7 @@ const Products = () => {
     return (
             <div className="products">
                 {productNodes.map(node => (
-                    <div>
+                    <div className="products-item">
                         <h1 className="products-header">{node.header}</h1>
                         <h2>{node.designer}</h2>
                         <p>{node.description}</p>
