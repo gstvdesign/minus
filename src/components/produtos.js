@@ -19,7 +19,7 @@ const Products = () => {
                         }
                     }
                 }
-                descrition
+                description
             }
         }
     }
@@ -31,12 +31,12 @@ const Products = () => {
             <div className="products">
                 {productNodes.map(node => (
                     <div>
-                        <h1>{node.header}</h1>
-                        <Img
-                            fluid={node.img.childImageSharp.fluid}
-                            alt="Something" />
+                        <h1 className="products-header">{node.header}</h1>
                         <h2>{node.designer}</h2>
                         <p>{node.description}</p>
+                        <Img
+                            fluid={node.img.childImageSharp.fluid}
+                            alt="{node.description}" />
                     </div>
                 ))}
             </div>
